@@ -1,6 +1,15 @@
-import { Module } from '../core/module'
+import {Module} from '../core/module'
 
-export class ShapeModule extends Module
-{
+export class ShapeModule extends Module {
+	constructor(type, text) {
+		super(type, text);
+	}
 
+	toHTML() {
+		return this.itemHtml;
+	}
+
+	trigger() {
+		super.trigger();
+	}
 }
