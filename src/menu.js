@@ -1,11 +1,11 @@
 import {Menu} from './core/menu';
 import {BackgroundModule} from "./modules/background.module";
-
+import {CustomMessageModule} from "./modules/customMessage.module";
 
 export class ContextMenu extends Menu {
 	#tasks
 	#body;
-
+	#messages
 	constructor(selector) {
 		super(selector);
 		this.#body = document.body;
@@ -37,6 +37,7 @@ export class ContextMenu extends Menu {
 
 		];
 
+
 	}
 
 	open() {
@@ -52,9 +53,14 @@ export class ContextMenu extends Menu {
 
 	add() {
 		const backgroundModule = new BackgroundModule(this.#tasks[4].data, this.#tasks[4].name);
-		this.el.append(backgroundModule.toHTML());
-		backgroundModule.trigger();
+		const customMessage = new CustomMessageModule(this.#tasks[5].data, this.#tasks[5].name);
 
+		this.el.append(
+			backgroundModule.toHTML(),
+			customMessage.toHTML()
+		);
+		backgroundModule.trigger();
+		customMessage.trigger();
 	}
 
 	close() {

@@ -41,3 +41,27 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+.custom-messages {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.custom-messages__message {
+    border: 1px solid darkorange;
+    border-radius: 5px;
+    background-color: #FF5F00;
+    color: aliceblue;
+    padding: 7px;
+    margin: 5px;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
+.custom-messages__message_hidden {
+    opacity: 0;
+}
