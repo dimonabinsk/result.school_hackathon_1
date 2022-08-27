@@ -1,14 +1,28 @@
-import { Module } from '../core/module'
-import { getRandomColor } from '../utils/utils'
+import {Module} from '../core/module'
+import {getRandomColor} from '../utils/utils'
 
 
-export class BackgroundModule extends Module
-{
-constructor (type, text) {
-super (type, text)
-}
+export class BackgroundModule extends Module {
+	#itemHtml;
 
-trigger() {
-    document.body.style.backgroundColor = getRandomColor()
-}
+	constructor(type, text) {
+		super(type, text);
+		this.#itemHtml = document.createElement("li");
+		this.#itemHtml.className = "menu-item";
+		this.#itemHtml.dataset.type = this.type;
+		this.#itemHtml.textContent = this.text;
+	}
+
+
+	toHTML() {
+		return this.#itemHtml;
+	}
+
+	trigger() {
+		this.#itemHtml.addEventListener("click", () => {
+			document.body.style.backgroundColor = getRandomColor();
+		})
+
+
+	}
 }

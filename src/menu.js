@@ -1,47 +1,41 @@
-import {Menu} from './core/menu'
+import {Menu} from './core/menu';
+import {BackgroundModule} from "./modules/background.module";
+
 
 export class ContextMenu extends Menu {
-	#arr;
+	#tasks
 	#body;
-	#itemHTML;
+
 	constructor(selector) {
 		super(selector);
-		this.#body  = document.body;
-		this.#arr = [
+		this.#body = document.body;
+		this.#tasks = [
 			{
 				name:"Аналитика кликов",
-				data: "click-analytics",
+				data:"click-analytics",
 			},
 			{
 				name:"Случайная фигура",
-				data: "random-figure",
+				data:"random-figure",
 			},
 			{
-				name: "Таймер отсчета",
-				data: "countdown-timer",
+				name:"Таймер отсчета",
+				data:"countdown-timer",
 			},
 			{
-				name: "Случайный звук",
-				data: "random-sound",
+				name:"Случайный звук",
+				data:"random-sound",
 			},
 			{
-				name: "Случайный фон",
-				data: "random-background",
+				name:"Случайный фон",
+				data:"random-background",
 			},
 			{
 				name:"Кастомное сообщение",
-				data: "custom-message",
+				data:"custom-message",
 			}
 
 		];
-
-		this.#itemHTML = this.#arr.map(obj => {
-			const itemLiHTML = document.createElement("li");
-			itemLiHTML.className = "menu-item";
-			itemLiHTML.textContent = obj.name;
-			itemLiHTML.setAttribute("data-type", `${obj.data}`);
-			return itemLiHTML;
-		})
 
 	}
 
@@ -57,7 +51,10 @@ export class ContextMenu extends Menu {
 	}
 
 	add() {
-		this.#itemHTML.forEach(elem => this.el.append(elem));
+		const backgroundModule = new BackgroundModule(this.#tasks[4].data, this.#tasks[4].name);
+		this.el.append(backgroundModule.toHTML());
+		backgroundModule.trigger();
+
 	}
 
 	close() {
