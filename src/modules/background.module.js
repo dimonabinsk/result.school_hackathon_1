@@ -19,10 +19,6 @@ export class BackgroundModule extends Module {
 	}
 
 	trigger() {
-		this.#itemHtml.addEventListener("click", () => {
-			document.body.style.backgroundColor = getRandomColor();
-		})
-
-
+		document.body.style.backgroundColor = getRandomColor();
 	}
 }
