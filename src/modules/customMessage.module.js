@@ -28,16 +28,14 @@ constructor(type, text) {
 }
 
 	trigger() {
-		this.#itemHtml.addEventListener("click", () => {
-			this.#messagesContainerHTML.innerHTML = "";
-			this.#newMessage.classList.add('custom-messages__message');
-			this.#newMessage.textContent = this.#messages[random(0, this.#messages.length - 1)];
-			this.#messagesContainerHTML.append(this.#newMessage);
-			document.body.append(this.#messagesContainerHTML);
-			setTimeout(() => {
-				this.#messagesContainerHTML.remove();
-			}, 3500);
-		});
+		this.#messagesContainerHTML.innerHTML = "";
+		this.#newMessage.classList.add('custom-messages__message');
+		this.#newMessage.textContent = this.#messages[random(0, this.#messages.length - 1)];
+		this.#messagesContainerHTML.append(this.#newMessage);
+		document.body.append(this.#messagesContainerHTML);
+		setTimeout(() => {
+			this.#messagesContainerHTML.remove();
+		}, 3500);
 
 	}
 
