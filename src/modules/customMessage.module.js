@@ -24,6 +24,7 @@ constructor(type, text) {
 }
 
 	trigger() {
+		this.clearBody();
 		this.#messagesContainerHTML.innerHTML = "";
 		this.#newMessage.classList.add('custom-messages__message');
 		this.#newMessage.textContent = this.#messages[random(0, this.#messages.length - 1)];
@@ -35,8 +36,5 @@ constructor(type, text) {
 
 	}
 
-	toHTML() {
-	return this.itemHtml;
-}
 
 }

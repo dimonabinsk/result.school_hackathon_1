@@ -5,9 +5,7 @@ export class RandomSoundModule extends Module {
 		super(type, text);
 	}
 
-	toHTML() {
-		return this.itemHtml;
-	}
+
 
 	trigger() {
 		super.trigger();

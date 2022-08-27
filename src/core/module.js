@@ -1,5 +1,4 @@
 export class Module {
-	itemHtml;
 	constructor(type, text) {
 		if(!type) {
 			throw new Error('Please specify "type" param')
@@ -21,6 +20,15 @@ export class Module {
 	}
 
 	toHTML() {
-		return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`
+		return this.itemHtml;
+	}
+
+	clearBody() {
+		const body = document.body;
+		const ulListItem = document.getElementById("menu")
+		body.style.backgroundColor = "#fff";
+		while(body.lastElementChild !== ulListItem) {
+			body.removeChild(body.lastElementChild);
+		}
 	}
 }

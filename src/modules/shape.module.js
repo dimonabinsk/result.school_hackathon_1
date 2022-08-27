@@ -5,9 +5,6 @@ export class ShapeModule extends Module {
 		super(type, text);
 	}
 
-	toHTML() {
-		return this.itemHtml;
-	}
 
 	trigger() {
 		super.trigger();

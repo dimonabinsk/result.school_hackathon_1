@@ -8,10 +8,6 @@ export class ClicksModule extends Module {
 	}
 
 
-	toHTML() {
-		return this.itemHtml;
-	}
-
 	trigger() {
 		super.trigger();
 	}
