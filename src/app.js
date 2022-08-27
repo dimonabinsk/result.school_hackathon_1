@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './styles/styles.css';
 import {ContextMenu} from "./menu";
 
