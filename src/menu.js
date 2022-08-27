@@ -8,18 +8,38 @@ export class ContextMenu extends Menu {
 		super(selector);
 		this.#body  = document.body;
 		this.#arr = [
-			"Аналитика кликов",
-			"Случайная фигура",
-			"Таймер отсчета",
-			"Случайный звук",
-			"Случайный фон",
-			"Кастомное сообщение"
+			{
+				name:"Аналитика кликов",
+				data: "click-analytics",
+			},
+			{
+				name:"Случайная фигура",
+				data: "random-figure",
+			},
+			{
+				name: "Таймер отсчета",
+				data: "countdown-timer",
+			},
+			{
+				name: "Случайный звук",
+				data: "random-sound",
+			},
+			{
+				name: "Случайный фон",
+				data: "random-background",
+			},
+			{
+				name:"Кастомное сообщение",
+				data: "custom-message",
+			}
+
 		];
 
-		this.#itemHTML = this.#arr.map(str => {
+		this.#itemHTML = this.#arr.map(obj => {
 			const itemLiHTML = document.createElement("li");
 			itemLiHTML.className = "menu-item";
-			itemLiHTML.textContent = str;
+			itemLiHTML.textContent = obj.name;
+			itemLiHTML.setAttribute("data-type", `${obj.data}`);
 			return itemLiHTML;
 		})
 
