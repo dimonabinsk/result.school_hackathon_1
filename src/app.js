@@ -1,7 +1,7 @@
 import './styles/styles.css';
-import { BackgroundModule } from '../src/modules/background.module.js'
+import { BackgroundModule } from './modules/background.module';
 
-const elBackground = document.querySelector ('[data-type = backgroundModule]')
+const elBackground = document.querySelector ('[data-type = "random-background"]')
 
 elBackground?.addEventListener ('click', () => {
 let element = new BackgroundModule ("backgroundModule", "Изменить фон")
