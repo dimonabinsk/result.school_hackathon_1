@@ -21,13 +21,13 @@ export class ClockModule extends Module {
          let getMinutes = date.getMinutes();
          if (date.getMinutes() < 10) {
             getMinutes = `0${date.getMinutes()}`
-         };
+         }; 
 
          let getSeconds = date.getSeconds();
          if (date.getSeconds() < 10) {
             getSeconds = `0${date.getSeconds()}`
          };
-         this.#clockModule.innerHTML = `${getHours}:${getMinutes}:${getSeconds}`
-      }, 1000);
+         this.#clockModule.innerHTML = `${getHours}:${getMinutes}:${getSeconds}`      
+      }, 1000); 
    }
-}
+} 
