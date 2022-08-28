@@ -68,6 +68,51 @@ body {
     opacity: 0;
 }
 
+.pokemon-card {
+    border: 5px solid rgb(228, 104, 62);
+    border-radius: 5px;
+    max-width: 130px;
+    background-color: rgb(253, 201, 105);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.pokemon-card__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pokemon-card__img {
+    text-align: center;
+}
+
+.pokemon-card__stats {
+    padding: 5px;
+}
+.module-clock-hidden {
+    margin: 100px auto;
+    width: 700px;
+    display: block; 
+    text-align: center;
+    padding: 20px;
+    font-size: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid rgb(23, 95, 171);
+    border-radius: 30px;
+    color: rgb(18, 36, 121);
+    opacity: 0;
+    transition: opacity  .1s ease;
+
+  }
+
+.module-clock-hidden.show {
+    opacity: 1;
+}
+
 .timer {
 width: 200px;
     padding: 5px;

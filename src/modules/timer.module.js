@@ -2,9 +2,7 @@ import {Module} from '../core/module';
 
 
 export class TimerModule extends Module {
-
     #body
-
     constructor(type, text) {
         super(type, text);
 
@@ -60,5 +58,6 @@ export class TimerModule extends Module {
 
         })
     }
+
 
 }
