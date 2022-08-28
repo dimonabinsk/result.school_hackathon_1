@@ -48,7 +48,7 @@ export class TimerModule extends Module {
             let count = +this.input.value;
             const timeOutstanding = setInterval( () => {
                 count--;
-                this.counter.textContent = count;
+                this.counter.textContent = `${count}`;
                 if (count === 0) {
                     clearInterval(timeOutstanding);
                     setTimeout(() => {
@@ -56,9 +56,7 @@ export class TimerModule extends Module {
                     }, 1000);
                 }
             }, 1000);
-
-
-
+            
 
         })
     }
