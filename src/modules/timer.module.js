@@ -11,17 +11,17 @@ export class TimerModule extends Module {
         this.counter = document.createElement('div');
 
         this.input.className = 'timer';
-        this.input.placeholder = 'Введите число от 0 до 10';
+        this.input.placeholder = 'Введите число от 1 до 10';
         this.input.type = 'number';
-        this.input.value = 0;
-        this.input.min = 0;
-        this.input.max = 10;
+        this.input.value = "1";
+        this.input.min = "1";
+        this.input.max = "10";
 
         this.button.textContent = 'Начать отсчёт';
         this.button.className = 'button-timer';
         this.button.type = 'submit';
 
-        this.counter.textContent = '0';
+        this.counter.textContent = '1';
         this.counter.className = 'timer-count';
 
         this.form.append(this.input, this.button);
@@ -34,22 +34,25 @@ export class TimerModule extends Module {
         this.createTimerElements();
         this.form.addEventListener('submit', event => {
             event.preventDefault();
-            this.counter.textContent = this.input.value;
-            this.form.style.display = 'none';
-            this.counter.style.display = 'block';
+            if(this.input.value) {
+                this.counter.textContent = this.input.value;
+                this.form.style.display = 'none';
+                this.counter.style.display = 'block';
 
-            let count = +this.input.value;
-            const timeOutstanding = setInterval( () => {
-                count--;
-                this.counter.textContent = `${count}`;
-                if (count === 0) {
-                    clearInterval(timeOutstanding);
-                    setTimeout(() => {
-                        alert('Время вышло');
-                        this.counter.remove();
-                    }, 1000);
-                }
-            }, 1000);
+                let count = +this.input.value;
+                const timeOutstanding = setInterval( () => {
+                    count--;
+                    this.counter.textContent = `${count}`;
+                    if (count === 0) {
+                        clearInterval(timeOutstanding);
+                        setTimeout(() => {
+                            alert('Время вышло');
+                            this.counter.remove();
+                        }, 1000);
+                    }
+                }, 1000);
+            }
+
         });
     }
 }
