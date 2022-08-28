@@ -6,7 +6,6 @@ export class TimerModule extends Module {
         this.input = document.createElement('input')
         this.form = document.createElement('form');
         this.button = document.createElement('button');
-        this.label = document.createElement('label');
         this.container = document.createElement('div');
         this.counter = document.createElement('div');
 
