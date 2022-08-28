@@ -6,6 +6,7 @@ import {ClicksModule} from "./modules/clicks.module";
 import {RandomSoundModule} from "./modules/randomSound.module";
 import {ShapeModule} from "./modules/shape.module";
 import {TimerModule} from "./modules/timer.module";
+import { PokemonModule } from './modules/pokemon.module';
 
 
 // const tasks = [
@@ -42,8 +43,8 @@ const modules = [
 	new ClicksModule("click-analytics", "Аналитика кликов"),
 	new RandomSoundModule("random-sound","Случайный звук"),
 	new ShapeModule("random-figure", "Случайная фигура"),
-	new TimerModule("countdown-timer", "Таймер отсчета")
-
+	new TimerModule("countdown-timer", "Таймер отсчета"),
+	new PokemonModule('random-pokemon', 'Призвать Покемона')
 ];
 // вызов контекстное меню
 const contextMenu = new ContextMenu( "#menu" );
