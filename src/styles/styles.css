@@ -13,6 +13,7 @@ body {
     height: 100vh;
     width: 100%;
     padding: 2rem;
+    transition: .3s ease;
 }
 
 .menu {
@@ -36,12 +37,62 @@ body {
     cursor: pointer;
     transition: background-color .2s ease-in;
     border-radius: inherit;
+    user-select: none;
 }
 
 .menu .menu-item:hover {
     background: #343434;
 }
 
+.custom-messages {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.custom-messages__message {
+    border: 1px solid darkorange;
+    border-radius: 5px;
+    background-color: #FF5F00;
+    color: aliceblue;
+    padding: 7px;
+    margin: 5px;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
+.custom-messages__message_hidden {
+    opacity: 0;
+}
+
+.pokemon-card {
+    border: 5px solid rgb(228, 104, 62);
+    border-radius: 5px;
+    max-width: 130px;
+    background-color: rgb(253, 201, 105);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.pokemon-card__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pokemon-card__img {
+    text-align: center;
+}
+
+.pokemon-card__stats {
+    padding: 5px;
+}
 .module-clock {
     margin: 100px auto;
     width: 700px;
