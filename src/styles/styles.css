@@ -93,3 +93,16 @@ body {
 .pokemon-card__stats {
     padding: 5px;
 }
+.module-clock {
+    margin: 100px auto;
+    width: 700px;
+    display: block; 
+    text-align: center;
+    padding: 20px;
+    font-size: 150px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid rgb(23, 95, 171);
+    border-radius: 30px;
+    color: rgb(18, 36, 121);
+  }
