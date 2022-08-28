@@ -1,33 +1,49 @@
-import { Module } from '../core/module'
+import {Module} from '../core/module'
 
 export class ClockModule extends Module {
-   #clockModule;
-   constructor(type, text) {
-      super(type, text);
-   }
-   
-   trigger() {
-      this.#clockModule = document.createElement('div');
-      this.#clockModule.classList.add('module-clock');
-      document.body.append(this.#clockModule);
-      setInterval(function () {
-         let date = new Date;
+	#body;
+	date;
+	getHours;
+	getMinutes;
+	getSeconds;
+	#clockModule;
 
-         let getHours = date.getHours();
-         if (date.getHours() < 10) {
-            getHours = `0${date.getHours()}`
-         };
+	constructor(type, text) {
+		super(type, text);
+		this.#clockModule = document.createElement('div');
+		this.#clockModule.classList.add('module-clock-hidden');
+		this.#clockModule.dataset.clock = type;
+		this.#body = document.body;
 
-         let getMinutes = date.getMinutes();
-         if (date.getMinutes() < 10) {
-            getMinutes = `0${date.getMinutes()}`
-         }; 
+	}
 
-         let getSeconds = date.getSeconds();
-         if (date.getSeconds() < 10) {
-            getSeconds = `0${date.getSeconds()}`
-         };
-         this.#clockModule.innerHTML = `${getHours}:${getMinutes}:${getSeconds}`      
-      }, 1000); 
-   }
+	newTime() {
+		this.date = new Date;
+		this.getHours = this.date.getHours();
+		this.getMinutes = this.date.getMinutes();
+		this.getSeconds = this.date.getSeconds();
+
+		if(this.getHours < 10) {
+			this.getHours = `0${this.getHours}`;
+		}
+
+		if(this.getMinutes < 10) {
+			this.getMinutes = `0${this.getMinutes}`;
+		}
+
+		if(this.getSeconds < 10) {
+			this.getSeconds = `0${this.getSeconds}`;
+		}
+		return this.#clockModule.innerText = `${this.getHours}:${this.getMinutes}:${this.getSeconds}`;
+
+	}
+
+	trigger() {
+		this.clearBody();
+		setInterval(this.newTime.bind(this), 1000);
+		this.#body.append(this.#clockModule);
+		setTimeout(() => {
+			this.#clockModule.classList.add('show');
+			}, 1000);
+	}
 } 
