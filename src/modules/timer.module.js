@@ -1,12 +1,8 @@
-import {Module} from '../core/module';
-
+import { Module } from '../core/module';
 
 export class TimerModule extends Module {
-    #body
-    constructor(type, text) {
-        super(type, text);
-
-        this.#body = document.body;
+    createTimerElements() {
+        this.body = document.body;
         this.input = document.createElement('input')
         this.form = document.createElement('form');
         this.button = document.createElement('button');
@@ -17,9 +13,9 @@ export class TimerModule extends Module {
         this.input.className = 'timer';
         this.input.placeholder = 'Введите число от 0 до 10';
         this.input.type = 'number';
+        this.input.value = 0;
         this.input.min = 0;
         this.input.max = 10;
-
 
         this.button.textContent = 'Начать отсчёт';
         this.button.className = 'button-timer';
@@ -30,14 +26,13 @@ export class TimerModule extends Module {
 
         this.form.append(this.input, this.button);
         this.container.append(this.form, this.counter);
-
-
+        this.body.append(this.container);
     }
 
-
     trigger() {
-        this.#body.append(this.container);
-        this.form?.addEventListener('submit', event => {
+        this.clearBody();
+        this.createTimerElements();
+        this.form.addEventListener('submit', event => {
             event.preventDefault();
             this.counter.textContent = this.input.value;
             this.form.style.display = 'none';
@@ -51,13 +46,10 @@ export class TimerModule extends Module {
                     clearInterval(timeOutstanding);
                     setTimeout(() => {
                         alert('Время вышло');
+                        this.counter.remove();
                     }, 1000);
                 }
             }, 1000);
-            
-
-        })
+        });
     }
-
-
 }
