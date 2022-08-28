@@ -21,7 +21,7 @@ const modules = [
 	new PokemonModule('random-pokemon', 'Призвать Покемона'),
 	new ClockModule("clock", "Показать время")
 ];
-// вызов контекстное меню
+
 const contextMenu = new ContextMenu( "#menu" );
 contextMenu.open();
 
