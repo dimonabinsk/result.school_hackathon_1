@@ -79,6 +79,10 @@ module.exports = {
 				include: path.resolve( __dirname, 'src' ),
 				type: 'asset/resource',
 			},
+			{
+				test: /\.mp3/,
+				type: 'asset/resource'
+			}
 		],
 	}
 
